@@ -1,4 +1,3 @@
-devel/
 logs/
 build/
 bin/
@@ -37,8 +36,6 @@ srv/_*.py
 *.pyc
 qtcreator-*
 *.user
-
-.vscode
 
 /planning/cfg
 /planning/docs
