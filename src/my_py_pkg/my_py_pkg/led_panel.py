@@ -9,7 +9,9 @@ class LedPanelNode(Node):
     def __init__(self):
         super().__init__("led_panel")
 
-        self.led_states_ = [0, 0, 0]
+        self.declare_parameter("led_states", [0, 0, 0])
+        self.led_states_ = self.get_parameter("led_states").value
+
         self.led_state_publisher_ = self.create_publisher(LedStateArray, "led_state", 10)
         self.led_state_time_ = self.create_timer(4, self.publis_led_states)
         self.set_led_service_ = self.create_service(SetLed, "set_led", self.callback_set_led)

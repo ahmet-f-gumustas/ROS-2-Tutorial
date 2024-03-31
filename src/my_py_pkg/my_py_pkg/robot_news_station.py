@@ -9,7 +9,10 @@ class RobotNewsStationNode(Node): # MODIFY NAME
     def __init__(self):
         super().__init__("robot_news_station") # MODIFY NAME
 
-        self.robot_name_ = "C3PO"
+        self.declare_parameter("robot_name", "C3PO")
+
+
+        self.robot_name_ = self.get_parameter("robot_name").value
 
         self.publisher_ = self.create_publisher(String, "robot_news", 10) # Topic name robot_news-- check the ros2 topic list in the terminal 
                                                                          # This 10 is buffer , keep 10 messages and send it.
